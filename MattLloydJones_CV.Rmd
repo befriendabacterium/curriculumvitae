@@ -1,0 +1,376 @@
+---
+name: Matt Lloyd Jones
+date: "`r format(Sys.time(), '%B, %Y')`"
+qualifications: BA, PhD
+address: he/him
+profilepic: mattlloydjones.jpg
+#website: 
+github: befriendabacterium
+#linkedin: 
+#twitter: 
+headcolor: 414141
+output: vitae::awesomecv
+docname: CV made with `vitae` R package
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+#remotes::install_github("ropensci/rorcid@api-v3")
+library(vitae)
+library(rorcid)
+library(scholar)
+library(tidyverse)
+```
+
+# Professional Summary
+
+I am a researcher who is passionate about making the most of research already conducted and improving the rigour and transparency of research yet to be conducted. Having started out my research career in human geography as an undergraduate and subsequently moved on to a laboratory-based PhD in microbial ecology, I have a practical appreciation and understanding of the hard work that goes into conducting primary research in science as well as social science and the humanities. I now seek to maximise the accessibility and usefulness of primary research for researchers and non-researchers alike, offering my programming and statistical skills towards a combination of evidence synthesis, study design and analysis, and teaching others robust and transparent research methods.
+
+<!-- As an evidence synthesist working in systematic review and meta-analysis, I enjoy the challenge of piecing together different bits of research to try to answer big research questions more conclusively. This requires me to apply my acute understanding of study designs and their biases, as well as my extensive computational and statistical skills. Nonetheless, this process of attempting to synthesise research also often peels back its curtain - revealing how lack of rigour and transparency frequently creeps in to prevent research from achieving its purported goals. Whilst we are all to some extent subject to the systems of which we are part, I try to overcome these issues in my own research through statistically-informed design and analysis, alongside adopting open research practices such as preregistration, preprinting and data and code sharing. These are also values that I advocate for and train to other researchers through my teaching, mentoring, talks and involvement in open research-focussed initiatives. -->
+
+
+# Education & qualifications
+
+## Education
+
+```{r edu, include=TRUE}
+#pull education data from orcid
+orcid_education<-rorcid::orcid_educations('0000-0001-5841-4554')$`0000-0001-5841-4554`$`affiliation-group`$summaries
+#join into one dataframe
+orcid_education<-orcid_education %>% purrr::reduce(full_join)
+
+#convert month numbers to abbrevs
+orcid_education$`education-summary.start-date.month.value`<-month.abb[as.numeric(orcid_education$`education-summary.start-date.month.value`)]
+orcid_education$`education-summary.end-date.month.value`<-month.abb[as.numeric(orcid_education$`education-summary.end-date.month.value`)]
+
+#replace NA with present for end year
+orcid_education$`education-summary.end-date.year.value`[is.na(orcid_education$`education-summary.end-date.year.value`)]<-'present'
+#replace NA with present for end year
+orcid_education$`education-summary.end-date.month.value`[is.na(orcid_education$`education-summary.end-date.month.value`)]<-''
+
+#print detailed entries
+vitae::detailed_entries(orcid_education,
+     what = `education-summary.role-title`,
+     when = paste(`education-summary.start-date.month.value`,`education-summary.start-date.year.value`,
+                  '-',
+                  `education-summary.end-date.month.value`,`education-summary.end-date.year.value`),
+     with = paste(`education-summary.department-name`,`education-summary.organization.name`, sep=', '),
+     where = `education-summary.organization.address.city`
+    # # why = cites
+   )
+```
+
+## Qualifications
+
+```{r qual, include=TRUE}
+#pull qualification data from orcid
+orcid_qualification<-rorcid::orcid_qualifications('0000-0001-5841-4554')$`0000-0001-5841-4554`$`affiliation-group`$summaries
+#join into one dataframe
+orcid_qualification<-orcid_qualification %>% purrr::reduce(full_join)
+
+#convert month numbers to abbrevs
+orcid_qualification$`qualification-summary.start-date.month.value`<-month.abb[as.numeric(orcid_qualification$`qualification-summary.start-date.month.value`)]
+orcid_qualification$`qualification-summary.end-date.month.value`<-month.abb[as.numeric(orcid_qualification$`qualification-summary.end-date.month.value`)]
+
+#replace NA with present for end year
+orcid_qualification$`qualification-summary.end-date.year.value`[is.na(orcid_qualification$`qualification-summary.end-date.year.value`)]<-'present'
+#replace NA with present for end year
+orcid_qualification$`qualification-summary.end-date.month.value`[is.na(orcid_qualification$`qualification-summary.end-date.month.value`)]<-''
+
+#print detailed entries
+vitae::detailed_entries(orcid_qualification,
+     what = `qualification-summary.role-title`,
+     when = paste(`qualification-summary.start-date.month.value`,`qualification-summary.start-date.year.value`,
+                  '-',
+                  `qualification-summary.end-date.month.value`,`qualification-summary.end-date.year.value`),
+     with = paste(`qualification-summary.department-name`,`qualification-summary.organization.name`, sep=', '),
+     where = `qualification-summary.organization.address.city`
+    # # why = cites
+   )
+```
+
+# Employment
+
+```{r emp, include=TRUE}
+
+orcid_employment<-rorcid::orcid_employments('0000-0001-5841-4554')$`0000-0001-5841-4554`$`affiliation-group`$summaries
+
+orcid_employment<-orcid_employment %>% purrr::reduce(full_join)
+
+#convert month numbers to abbrevs
+orcid_employment$`employment-summary.start-date.month.value`<-month.abb[as.numeric(orcid_employment$`employment-summary.start-date.month.value`)]
+orcid_employment$`employment-summary.end-date.month.value`<-month.abb[as.numeric(orcid_employment$`employment-summary.end-date.month.value`)]
+
+#replace NA with present for end year
+orcid_employment$`employment-summary.end-date.year.value`[is.na(orcid_employment$`employment-summary.end-date.year.value`)]<-'present'
+#replace NA with present for end year
+orcid_employment$`employment-summary.end-date.month.value`[is.na(orcid_employment$`employment-summary.end-date.month.value`)]<-''
+
+#print detailed entries
+vitae::detailed_entries(orcid_employment,
+     what = `employment-summary.role-title`,
+     when = paste(`employment-summary.start-date.month.value`,`employment-summary.start-date.year.value`,
+                  '-',
+                  `employment-summary.end-date.month.value`,`employment-summary.end-date.year.value`),
+     with = paste(`employment-summary.department-name`,`employment-summary.organization.name`, sep=', '),
+     where = `employment-summary.organization.address.city`,
+    # # why = cites
+   )
+
+```
+
+
+# Skills
+
+## Statistics & programming
+
+-   **10 years** experience in parametric statistics and non-parametric statistics including power analysis, linear models, generalised linear mixed models, ordination and machine learning techniques.
+
+-   **10 years** experience programming in R including statistics, figure production, data wrangling, text processing and web scraping/web APIs.
+
+-   **\>2 years** experience in document markup in RMarkdown Markdown, Quarto and LaTeX - including for the production of PDF and Word documents, website content and presentations. This CV was produced using `rmarkdown` and the `vitae` package!
+
+-   **2 years** experience in interactive dashboard development in RShiny
+
+-   **3 years** experience in using git and GitHub for version control for academic research projects and software development
+
+-   Learning UNIX and python programming
+
+## Evidence synthesis (systematic review & meta-analysis)
+
+-   **Protocol design** and **pre-registration**
+
+-   **Systematic searching** (e.g. search design; processing bibliographic data in R)
+
+-   **Study screening** (e.g. in Rayyan and R)
+
+-   **Data extraction, wrangling and standardisation** (e.g. extraction from plots; individual participant data processing; effect size calculation)
+
+-   **Meta-analytical modelling** (e.g. fixed, random & mixed effects models; repeated measures designs; sensitivity analyses)
+
+-   Systematic review **project management** (e.g. training, task allocation)
+
+## Other
+
+-   **Bioinformatics** in UNIX and R (e.g. QIIME, DADA2)
+
+-   **Laboratory experience** (e.g. culture-based techniques, molecular biology, amplicon sequencing, spectrophotometry, flow cytometry, robotic pipetting, microscopy, tissue culture, field sampling and processing.
+
+-   **Ethics applications** for research (including obtaining approval from Medical School research ethics committees)
+
+-  **Project management** techniques (e.g. Sprint, kanban, research-specific techniques)
+
+<!-- - **Spanish language** (beginner-to-intermediate level speaking and writing) -->
+
+# Teaching/training experience
+
+-   **On-the-job supervision and training** of PhD students and national and international collaborators in statistics, R programming and evidence synthesis (2019-present; University of Exeter)
+
+-   **Delivery of workshops on open research practices** including preregistration, preregistration, and code and data sharing as part of the UKRN's 'Train the Trainer' programme and Exeter Data Analytics Hub (Summer 2023; University of Exeter)
+
+-   **Teaching and assessment of medical students** on 2 Special Study Units (SSUs) on AMR in the environment (February and December 2021; University of Exeter)
+
+-   **Formal supervision of two Master's student projects** who both achieved Merits (2015-2017; Imperial College London)
+
+-   **Teaching of Master's and undergraduate course content** including statistics and R programming, molecular biology, field ecology, population genetics (2014-2017; Imperial College London)
+
+# Membership and service
+
+## Membership
+
+```{r mem, include=TRUE}
+orcid_memberships<-rorcid::orcid_memberships('0000-0001-5841-4554')$`0000-0001-5841-4554`$`affiliation-group`$summaries
+orcid_memberships<-orcid_memberships %>% purrr::reduce(full_join)
+
+#convert month numbers to abbrevs
+orcid_memberships$`membership-summary.start-date.month.value`<-month.abb[as.numeric(orcid_memberships$`membership-summary.start-date.month.value`)]
+orcid_memberships$`membership-summary.end-date.month.value`<-month.abb[as.numeric(orcid_memberships$`membership-summary.end-date.month.value`)]
+
+#replace NA with present for end year
+orcid_memberships$`membership-summary.end-date.year.value`[is.na(orcid_memberships$`membership-summary.end-date.year.value`)]<-'present'
+#replace NA with present for end year
+orcid_memberships$`membership-summary.end-date.month.value`[is.na(orcid_memberships$`membership-summary.end-date.month.value`)]<-''
+
+#print detailed entries
+vitae::detailed_entries(orcid_memberships,
+     what = `membership-summary.role-title`,
+     when = paste(`membership-summary.start-date.month.value`,`membership-summary.start-date.year.value`,
+                  '-',
+                  `membership-summary.end-date.month.value`,`membership-summary.end-date.year.value`),
+     with = `membership-summary.organization.name`,
+     where = `membership-summary.organization.address.city`,
+    # # why = cites
+   )
+
+```
+
+## Service
+
+```{r ser, include=TRUE}
+orcid_services<-rorcid::orcid_services('0000-0001-5841-4554')$`0000-0001-5841-4554`$`affiliation-group`$summaries
+orcid_services<-orcid_services %>% purrr::reduce(full_join)
+
+#convert month numbers to abbrevs
+orcid_services$`service-summary.start-date.month.value`<-month.abb[as.numeric(orcid_services$`service-summary.start-date.month.value`)]
+orcid_services$`service-summary.end-date.month.value`<-month.abb[as.numeric(orcid_services$`service-summary.end-date.month.value`)]
+
+#replace NA with present for end year
+orcid_services$`service-summary.end-date.year.value`[is.na(orcid_services$`service-summary.end-date.year.value`)]<-'present'
+#replace NA with present for end year
+orcid_services$`service-summary.end-date.month.value`[is.na(orcid_services$`service-summary.end-date.month.value`)]<-''
+
+#print detailed entries
+vitae::detailed_entries(orcid_services,
+     what = `service-summary.role-title`,
+     when = paste(`service-summary.start-date.month.value`,`service-summary.start-date.year.value`,
+                  '-',
+                  `service-summary.end-date.month.value`,`service-summary.end-date.year.value`),
+     with = `service-summary.organization.name`,
+     where = `service-summary.organization.address.city`,
+    # # why = cites
+   )
+
+```
+
+
+# Talks
+
+```{r talks, include=TRUE}
+
+# #FROM ORCID
+orcid_talks<-rorcid::orcid_works('0000-0001-5841-4554')$`0000-0001-5841-4554`$works
+orcid_talks<-orcid_talks[orcid_talks$type=='lecture-speech',]
+orcid_talks$`publication-date.month.value`<-month.abb[as.numeric(orcid_talks$`publication-date.month.value`)]
+
+vitae::detailed_entries(orcid_talks,
+     # what = 
+     when = paste(`publication-date.day.value`,`publication-date.month.value`,`publication-date.year.value`),
+     with = title.title.value,
+     where = `journal-title.value`
+     #why = cites
+)
+
+```
+# Distinctions
+
+```{r dis, include=TRUE}
+orcid_distinctions<-rorcid::orcid_distinctions('0000-0001-5841-4554')$`0000-0001-5841-4554`$`affiliation-group`$summaries
+orcid_distinctions<-orcid_distinctions %>% purrr::reduce(full_join)
+
+#convert month numbers to abbrevs
+orcid_distinctions$`distinction-summary.start-date.month.value`<-month.abb[as.numeric(orcid_distinctions$`distinction-summary.start-date.month.value`)]
+
+
+#print detailed entries
+vitae::detailed_entries(orcid_distinctions,
+     what = `distinction-summary.organization.name`,
+     when = paste(`distinction-summary.start-date.month.value`,`distinction-summary.start-date.year.value`),
+     with = `distinction-summary.role-title`,
+     where = `distinction-summary.organization.address.city`,
+    # # why = cites
+   )
+
+```
+
+
+# Funding awarded
+
+```{r fun, include=TRUE}
+orcid_funding<-rorcid::orcid_fundings('0000-0001-5841-4554')$`0000-0001-5841-4554`$group$`funding-summary`
+orcid_funding<-orcid_funding %>% purrr::reduce(full_join)
+#sort by year
+orcid_funding<-orcid_funding[order(orcid_funding$`end-date.year.value`,decreasing = T),]
+
+#convert month numbers to abbrevs
+orcid_funding$`start-date.month.value`<-month.abb[as.numeric(orcid_funding$`start-date.month.value`)]
+orcid_funding$`end-date.month.value`<-month.abb[as.numeric(orcid_funding$`end-date.month.value`)]
+
+#replace NA with present for end year
+orcid_funding$`end-date.year.value`[is.na(orcid_funding$`end-date.year.value`)]<-'present'
+#replace NA with present for end year
+orcid_funding$`end-date.month.value`[is.na(orcid_funding$`end-date.month.value`)]<-''
+
+#print detailed entries
+vitae::detailed_entries(orcid_funding,
+     what = title.title.value,
+     when = paste(`start-date.month.value`,`start-date.year.value`,
+                  '-',
+                  `end-date.month.value`,`end-date.year.value`),
+     with = organization.name,
+     where = c("£196,760","£5000")
+    # why = cites
+   )
+
+
+```
+
+
+
+# Publications
+
+```{r scholarscrape, include=TRUE}
+
+# # #FROM ORCID
+# orcid_pubs<-rorcid::orcid_works('0000-0001-5841-4554')$`0000-0001-5841-4554`$works
+# orcid_pubs<-orcid_pubs[orcid_pubs$type=='journal-article',]
+# vitae::detailed_entries(orcid_pubs,
+#      what = title.title.value,
+#      when = `publication-date.year.value`,
+#      #with = `source.assertion-origin-name.value`,
+#      where = `journal-title.value`
+#      #why = cites
+# )
+
+#FROM SCHOLAR
+scholar_pubs<-scholar::get_publications("MgeozOEAAAAJ")
+#reorder by year
+scholar_pubs<-scholar_pubs[order(scholar_pubs$year, decreasing = T),]
+
+```
+
+## In prep
+
+```{r pre, include=TRUE}
+
+scholar_pubs_preprinted<-scholar_pubs[scholar_pubs$journal=='bioRxiv',]
+#restrict to this year's preprints
+scholar_pubs_preprinted<-scholar_pubs_preprinted[scholar_pubs_preprinted$year==2023,]
+
+#manually add my in prep work
+scholar_pubs_preprinted[2,]<-NA
+scholar_pubs_preprinted$author[2]<-'ML Jones, A Bethel, A. Peralta, A. Leonard, MP Quiroga, J Dominguez, N Casanova, M Fernández-Miyakawa, A Sanchez-Tojar, A Petroni, W Gaze, R Garside'
+scholar_pubs_preprinted$year[2]<-'2023'
+scholar_pubs_preprinted$journal[2]<-'In prep'
+scholar_pubs_preprinted$title[2]<-'A systematic review of the relationship between antibiotic use and resistance in beef farming'
+
+#reverse order so next coming at top
+scholar_pubs_preprinted<-scholar_pubs_preprinted[rev(1:nrow(scholar_pubs_preprinted)),]
+
+#print detailed entries
+vitae::detailed_entries(scholar_pubs_preprinted,
+     what = author,
+     when = year,
+     with = title,
+     where = journal
+    # why = cites
+   )
+```
+
+## Published
+
+```{r pub, include=TRUE}
+
+scholar_pubs_published<-scholar_pubs[scholar_pubs$journal!='bioRxiv',]
+#for the Frontiers in Vet Sci pub, fill in the rest of the authors manually
+scholar_pubs_published$author[scholar_pubs_published$number=='10, 1079948']<-'ML Jones, MS Barnish, RR Hughes, AK Murray, O Mansour, T Loni, HM Vickery, ML Evans, L Green, N Verdezoto'
+
+#print detailed entries
+vitae::detailed_entries(scholar_pubs_published,
+     what = author,
+     when = year,
+     with = title,
+     where = journal
+    # why = cites
+   )
+
+```
