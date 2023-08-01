@@ -1,0 +1,339 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+%
+% Adapted to be an Rmarkdown template by Mitchell O'Hara-Wild
+% 23 November 2018
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt,a4paper,]{awesome-cv}
+
+% Configure page margins with geometry
+\usepackage{geometry}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+
+\definecolor{awesome}{HTML}{414141}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+\def\endfirstpage{\newpage}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+
+\photo{mattlloydjones.jpg}
+\name{Matt Lloyd Jones}{}
+
+\address{he/him}
+
+\github{befriendabacterium}
+
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \skype{skype-id}
+% \reddit{reddit-id}
+
+
+\usepackage{booktabs}
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+%------------------------------------------------------------------------------
+
+
+
+% Pandoc CSL macros
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{2em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\honortitlestyle{#1}}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\honordatestyle{#1}}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\begin{document}
+
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+% 2019-02-14 Chris Umphlett - add flexibility to the document name in footer, rather than have it be static Curriculum Vitae
+\makecvfooter
+  {August, 2023}
+    {Matt Lloyd Jones~~~·~~~CV made with \texttt{vitae} R package}
+  {\thepage}
+
+
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%------------------------------------------------------------------------------
+
+
+
+\hypertarget{professional-summary}{%
+\section{Professional Summary}\label{professional-summary}}
+
+I am a researcher who is passionate about making the most of research
+already conducted and improving the rigour and transparency of research
+yet to be conducted. Having started out my research career in human
+geography as an undergraduate and subsequently moved on to a
+laboratory-based PhD in microbial ecology, I have a practical
+appreciation and understanding of the hard work that goes into
+conducting primary research in science as well as social science and the
+humanities. I now seek to maximise the accessibility and usefulness of
+primary research for researchers and non-researchers alike, offering my
+programming and statistical skills towards a combination of evidence
+synthesis, study design and analysis, and teaching others robust and
+transparent research methods.
+
+\hypertarget{education-qualifications}{%
+\section{Education \& qualifications}\label{education-qualifications}}
+
+\hypertarget{education}{%
+\subsection{Education}\label{education}}
+
+\begin{cventries}
+    \cventry{PhD (microbial ecology)}{Department of Life Sciences, Imperial College London}{Ascot}{Sep 2013 - Sep 2017}{}\vspace{-4.0mm}
+    \cventry{BA Geography (First)}{Department of Geography, University of Oxford}{Oxford}{Sep 2009 - Sep 2012}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{qualifications}{%
+\subsection{Qualifications}\label{qualifications}}
+
+\begin{cventries}
+    \cventry{ Project Management Essentials for Researchers}{Fistral Training, University of Exeter}{Exeter}{May 2022 - May 2022}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{employment}{%
+\section{Employment}\label{employment}}
+
+\begin{cventries}
+    \cventry{Postdoctoral Research Fellow}{Environment \& Sustainability Institute, University of Exeter}{Penryn}{Apr 2019 -  present}{}\vspace{-4.0mm}
+    \cventry{Team Member (intern)}{Evidence, Environment Agency}{Bristol}{Jul 2018 - Oct 2018}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{skills}{%
+\section{Skills}\label{skills}}
+
+\hypertarget{statistics-programming}{%
+\subsection{Statistics \& programming}\label{statistics-programming}}
+
+\begin{itemize}
+\item
+  \textbf{10 years} experience in parametric statistics and
+  non-parametric statistics including power analysis, linear models,
+  generalised linear mixed models, ordination and machine learning
+  techniques.
+\item
+  \textbf{10 years} experience programming in R including statistics,
+  figure production, data wrangling, text processing and web
+  scraping/web APIs.
+\item
+  \textbf{\textgreater2 years} experience in document markup in
+  RMarkdown Markdown, Quarto and LaTeX - including for the production of
+  PDF and Word documents, website content and presentations. This CV was
+  produced using \texttt{rmarkdown} and the \texttt{vitae} package!
+\item
+  \textbf{2 years} experience in interactive dashboard development in
+  RShiny
+\item
+  \textbf{3 years} experience in using git and GitHub for version
+  control for academic research projects and software development
+\item
+  Learning UNIX and python programming
+\end{itemize}
+
+\hypertarget{evidence-synthesis-systematic-review-meta-analysis}{%
+\subsection{Evidence synthesis (systematic review \&
+meta-analysis)}\label{evidence-synthesis-systematic-review-meta-analysis}}
+
+\begin{itemize}
+\item
+  \textbf{Protocol design} and \textbf{pre-registration}
+\item
+  \textbf{Systematic searching} (e.g.~search design; processing
+  bibliographic data in R)
+\item
+  \textbf{Study screening} (e.g.~in Rayyan and R)
+\item
+  \textbf{Data extraction, wrangling and standardisation}
+  (e.g.~extraction from plots; individual participant data processing;
+  effect size calculation)
+\item
+  \textbf{Meta-analytical modelling} (e.g.~fixed, random \& mixed
+  effects models; repeated measures designs; sensitivity analyses)
+\item
+  Systematic review \textbf{project management} (e.g.~training, task
+  allocation)
+\end{itemize}
+
+\hypertarget{other}{%
+\subsection{Other}\label{other}}
+
+\begin{itemize}
+\item
+  \textbf{Bioinformatics} in UNIX and R (e.g.~QIIME, DADA2)
+\item
+  \textbf{Laboratory experience} (e.g.~culture-based techniques,
+  molecular biology, amplicon sequencing, spectrophotometry, flow
+  cytometry, robotic pipetting, microscopy, tissue culture, field
+  sampling and processing.
+\item
+  \textbf{Ethics applications} for research (including obtaining
+  approval from Medical School research ethics committees)
+\item
+  \textbf{Project management} techniques (e.g.~Sprint, kanban,
+  research-specific techniques)
+\end{itemize}
+
+\hypertarget{teachingtraining-experience}{%
+\section{Teaching/training
+experience}\label{teachingtraining-experience}}
+
+\begin{itemize}
+\item
+  \textbf{On-the-job supervision and training} of PhD students and
+  national and international collaborators in statistics, R programming
+  and evidence synthesis (2019-present; University of Exeter)
+\item
+  \textbf{Delivery of workshops on open research practices} including
+  preregistration, preprinting, and code and data sharing as part of the
+  UKRN's `Train the Trainer' programme and Exeter Data Analytics Hub
+  (Summer 2023; University of Exeter)
+\item
+  \textbf{Teaching and assessment of medical students} on 2 Special
+  Study Units (SSUs) on AMR in the environment (February and December
+  2021; University of Exeter)
+\item
+  \textbf{Formal supervision of two Master's student projects} who both
+  achieved Merits (2015-2017; Imperial College London)
+\item
+  \textbf{Teaching of Master's and undergraduate course content}
+  including statistics and R programming, molecular biology, field
+  ecology, population genetics (2014-2017; Imperial College London)
+\end{itemize}
+
+\hypertarget{membership-and-service}{%
+\section{Membership and service}\label{membership-and-service}}
+
+\hypertarget{membership}{%
+\subsection{Membership}\label{membership}}
+
+\begin{cventries}
+    \cventry{Member}{Society for Open, Reliable and Transparent Ecology and Evolutionary Biology (SORTEE)}{Glasgow}{Dec 2020 -  present}{}\vspace{-4.0mm}
+    \cventry{Member}{British Ecological Society}{London}{Feb 2020 -  present}{}\vspace{-4.0mm}
+    \cventry{Member}{Microbiology Society}{London}{Jan 2020 - Jan 2022}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{service}{%
+\subsection{Service}\label{service}}
+
+\begin{cventries}
+    \cventry{Workshop organiser/deliverer}{ University of Exeter Data Analytics Hub}{Penryn}{Jun 2023 -  present}{}\vspace{-4.0mm}
+    \cventry{Conference organiser}{Evidence Synthesis and Meta-analysis in R Conference}{Online}{Jun 2022 - Mar 2023}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{talks}{%
+\section{Talks}\label{talks}}
+
+\begin{cventries}
+    \cventry{}{Does antibiotic use in beef cattle production drive antibiotic resistance? (Invited talk) }{OECD-CRP Symposium (Edinburgh)}{22 Apr 2023}{}\vspace{-4.0mm}
+    \cventry{}{Does injecting and feeding beef cattle antibiotics increase antibiotic resistance levels in their faeces?  A systematic review and meta-analysis (Conference talk)}{EDAR6 (Gothenburg)}{25 Sep 2022}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{distinctions}{%
+\section{Distinctions}\label{distinctions}}
+
+\begin{cventries}
+    \cventry{NERC}{NERC COVID-19 Digitial Sprint Hackathon 2020 (Team Leader, £1500 second prize)}{London}{Jul 2020}{}\vspace{-4.0mm}
+    \cventry{University of Oxford}{Gibbs Prize (Best results in Final Honour School)}{Oxford}{Oct 2012}{}\vspace{-4.0mm}
+    \cventry{History \& Philosophy of Geography Research Group}{HPGRG Dissertation Prize}{London}{Sep 2012}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{funding-awarded}{%
+\section{Funding awarded}\label{funding-awarded}}
+
+\begin{cventries}
+    \cventry{Antimicrobial resistance (AMR) in the Environment: Bioaerosols}{Environment Agency}{£196,760}{Aug 2022 - Mar 2023}{}\vspace{-4.0mm}
+    \cventry{Exploring antibiotic use practices in livestock production through a novel, game-based approach}{GW4}{£5000}{Jul 2020 - Mar 2021}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{publications}{%
+\section{Publications}\label{publications}}
+
+\hypertarget{in-prep}{%
+\subsection{In prep}\label{in-prep}}
+
+\begin{cventries}
+    \cventry{ML Jones, A Bethel, A. Peralta, A. Leonard, MP Quiroga, J Dominguez, N Casanova, M Fernández-Miyakawa, A Sanchez-Tojar, A Petroni, W Gaze, R Garside}{A systematic review of the relationship between antibiotic use and resistance in beef farming}{In prep}{2023}{}\vspace{-4.0mm}
+    \cventry{A Pascual-García, D Rivett, ML Jones, T Bell}{Replaying the tape of ecology to domesticate wild microbiomes}{bioRxiv}{2023}{}\vspace{-4.0mm}
+\end{cventries}
+
+\hypertarget{published}{%
+\subsection{Published}\label{published}}
+
+\begin{cventries}
+    \cventry{ML Jones, MS Barnish, RR Hughes, AK Murray, O Mansour, T Loni, HM Vickery, ML Evans, L Green, N Verdezoto}{Exploring the potential of using simulation games for engaging with sheep farmers about lameness recognition}{Frontiers in Veterinary Science}{2023}{}\vspace{-4.0mm}
+    \cventry{ML Jones, DW Rivett, A Pascual-García, T Bell}{Relationships between community composition, productivity and invasion resistance in semi-natural bacterial microcosms}{eLife}{2021}{}\vspace{-4.0mm}
+    \cventry{ML Jones}{Review of airborne antimicrobial resistance}{Environment Agency}{2020}{}\vspace{-4.0mm}
+    \cventry{JCC Vila, ML Jones, M Patel, T Bell, J Rosindell}{Uncovering the rules of microbial community invasions}{Nature ecology \& evolution}{2019}{}\vspace{-4.0mm}
+    \cventry{DW Rivett, ML Jones, J Ramoneda, SB Mombrikotb, E Ransome, T Bell}{Elevated success of multispecies bacterial invasions impacts community composition during ecological succession}{Ecology Letters}{2018}{}\vspace{-4.0mm}
+    \cventry{ML Jones, J Ramoneda, DW Rivett, T Bell}{Biotic resistance shapes the influence of propagule pressure on invasion success in bacterial communities}{Ecology}{2017}{}\vspace{-4.0mm}
+\end{cventries}
+
+
+
+\end{document}

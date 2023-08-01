@@ -177,7 +177,7 @@ vitae::detailed_entries(orcid_employment,
 
 -   **On-the-job supervision and training** of PhD students and national and international collaborators in statistics, R programming and evidence synthesis (2019-present; University of Exeter)
 
--   **Delivery of workshops on open research practices** including preregistration, preregistration, and code and data sharing as part of the UKRN's 'Train the Trainer' programme and Exeter Data Analytics Hub (Summer 2023; University of Exeter)
+-   **Delivery of workshops on open research practices** including preregistration, preprinting, and code and data sharing as part of the UKRN's 'Train the Trainer' programme and Exeter Data Analytics Hub (Summer 2023; University of Exeter)
 
 -   **Teaching and assessment of medical students** on 2 Special Study Units (SSUs) on AMR in the environment (February and December 2021; University of Exeter)
 
